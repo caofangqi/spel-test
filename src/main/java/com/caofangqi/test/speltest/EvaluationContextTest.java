@@ -23,7 +23,7 @@ public class EvaluationContextTest {
         context.registerFunction("ituc", StringUtils.class.getMethod("getInitialToUpperCase",String.class));
 
         ExpressionParser parser = new SpelExpressionParser();
-        //解析表达式
+        //解析表达式 调用上面注册的函数 传入 变量 args 的第二个元素
         Expression expression = parser.parseExpression("#ituc(#args[2])");
         System.out.println("首字母大写:"+expression.getValue(context));
     }
